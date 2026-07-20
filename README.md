@@ -74,12 +74,6 @@ DOMAIN-KEYWORD,turn,REJECT
 DOMAIN-KEYWORD,webrtc,REJECT
 ```
 
-## 相关链接
-
-- 脚本地址（URL 添加用这个）：[https://raw.githubusercontent.com/87730/proxy\_DNS\_rules/refs/heads/main/flclash.js](https://raw.githubusercontent.com/87730/proxy_DNS_rules/refs/heads/main/flclash.js)
-- FlClash 官网：[https://github.com/FlClash-Tsing](https://github.com/FlClash-Tsing)
-- mihomo 内核文档：[https://wiki.metacubex.one](https://wiki.metacubex.one)
-
 ## 常见问题
 
 **Q: 开 TUN 后网速变慢？**

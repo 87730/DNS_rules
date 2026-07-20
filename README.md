@@ -16,6 +16,7 @@ FlClash 覆写脚本，防止 DNS 泄露和 WebRTC 泄露。
 2. FlClash → 配置 → 覆写脚本 → `+` → 通过 URL 添加
 3. 粘贴链接 → 保存
 4. 关联到订阅 → 刷新
+https://raw.githubusercontent.com/87730/proxy_DNS_rules/refs/heads/main/flclash.js
 
 ## 配置说明
 

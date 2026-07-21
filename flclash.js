@@ -1,7 +1,8 @@
-// FlClash 覆写脚本 - 防泄露专用
-// 功能：DNS 全加密 + WebRTC 阻断
+// FlClash 覆写脚本 - 纯净防泄露版 (DNS 全加密 + TUN 全局接管)
+// 说明：依靠 TUN 模式防止公网 IP 泄露。
+// 提示：若需防止局域网 IP 泄露，请在浏览器端配合使用 WebRTC Leak Prevent 等扩展插件。
 
-const VERSION = 'v2.1-leak-prevent'
+const VERSION = 'v3.0-leak-prevent-clean'
 
 var log = (typeof console !== 'undefined' && console.log) ? console.log.bind(console) : function() {}
 
@@ -61,16 +62,6 @@ function overwriteGeneral(config) {
   }
 }
 
-function injectRules(config) {
-  if (!Array.isArray(config.rules)) config.rules = []
-
-  config.rules.unshift('DOMAIN-KEYWORD,webrtc,REJECT')
-  config.rules.unshift('DOMAIN-KEYWORD,turn,REJECT')
-  config.rules.unshift('DOMAIN-KEYWORD,stun,REJECT')
-
-  log('[' + VERSION + '] Injected 3 rules at top: WebRTC keyword block')
-}
-
 function main(config) {
   try {
     if (!config || typeof config !== 'object') return config
@@ -78,8 +69,8 @@ function main(config) {
 
     log('[' + VERSION + '] Start processing')
 
+    // 执行核心配置覆写
     overwriteGeneral(config)
-    injectRules(config)
 
     log('[' + VERSION + '] Done')
   } catch (e) {
